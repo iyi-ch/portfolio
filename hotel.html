@@ -9,176 +9,209 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            display: flex;
+            justify-content: center;
+            text-align: centers;
+            font-style: italic;
+            font-size: 50px;
+            background-image: url(./images/mingwei-lim-Kfxlcfl5oe4-unsplash.jpg);
+            background-size: 100%;
+            color: aliceblue;
+            margin-bottom: 50px;
+            margin-top: 10px;
+        }
+
+        .contaner {
+            display: block;
+
+        }
+    </style>
 </head>
 
 <body>
-    <table id="table_id" class="display">
-        <thead>
-            <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <th>Column 4</th>
-                <th>Column 5</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 4 Data 1</td>
-                <td>Row 4 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
-            </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- datatable js cdn.js -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
-    </script>
-
-
-    <script>
-        
-        // cmd -> ipconfig -> get ip
-
-        // $.getJSON('https://data.ntpc.gov.tw/api/datasets/71CD1490-A2DF-4198-BEF1-318479775E8A/json?page=0&size=100')
-        //     .done(function (res) {
-        //         console.log(res);
-        //     });
-
-        // html http://localhost/myApi.html
-
-        // 第一組 localhost html vs localhost php
-        // $.getJSON('./myApi2.php')
-        //     .done(function (res) {
-        //         console.log(res);
-        //         console.log(res[0]);
-        //         console.log(res[0]['sno']);
-        //     });
-
-        // 第二組
-        // cmd -> ipconfig ->抓到你電腦的ip
-        // mac -> ifconfig 
-
-        // domain 不同 
-        // localhost vs 192.168.211.3            
-        // $.getJSON('http://192.168.211.3/myApi2.php')
-        //     .done(function (res) {
-        //         console.log(res);
-        //         console.log(res[0]);
-        //         console.log(res[0]['sno']);
-        //     });
+    <div class="container-fluid">
+    <div class="top">台中旅館查詢</div>
+    <div class="col-md-12">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th style="color: rgb(138, 201, 226);">Column 2</th>
+                    <th>Column 3</th>
+                    <th style="color: rgb(138, 201, 226);">Column 4</th>
+                    <th>Column 5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 4 Data 1</td>
+                    <td>Row 4 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container-fluid mt-5 mb-5">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1J-fSKMgnYb943y3ZSPjQyC4jf1lJt6Y&ehbc=2E312F" width="100%" height="600" ></iframe>
+</div>
+        <!-- datatable js cdn.js -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
+        </script>
 
 
-        // ajax
-        $.ajax({
-            dataType: 'json',
-            url:'./js/taichung-star-hotel.json',
+        <script>
+            // cmd -> ipconfig -> get ip
 
-            // data: 
-            success: function (res) {
-                console.log(res);
-                // 每一行名稱都不一樣
-                console.log(res);
+            // $.getJSON('https://data.ntpc.gov.tw/api/datasets/71CD1490-A2DF-4198-BEF1-318479775E8A/json?page=0&size=100')
+            //     .done(function (res) {
+            //         console.log(res);
+            //     });
 
-                // let data = res.records.location;
-                        // 方法二
-                        $('#table_id').DataTable
-                        ({
-                            data: res,
-                            columns: [{
-                                    data: '編號',
-                                    title: '編號'
+            // html http://localhost/myApi.html
 
-                                },
-                                {
-                                    data: '旅宿名稱',
-                                    title: '旅宿名稱'
-                                },
+            // 第一組 localhost html vs localhost php
+            // $.getJSON('./myApi2.php')
+            //     .done(function (res) {
+            //         console.log(res);
+            //         console.log(res[0]);
+            //         console.log(res[0]['sno']);
+            //     });
 
-                                {
-                                    data: '縣市別代碼',
-                                    title: '縣市別代碼'
-                                },
+            // 第二組
+            // cmd -> ipconfig ->抓到你電腦的ip
+            // mac -> ifconfig 
 
-                                {
-                                    data: '地址',
-                                    title: '地址'
-                                },
+            // domain 不同 
+            // localhost vs 192.168.211.3            
+            // $.getJSON('http://192.168.211.3/myApi2.php')
+            //     .done(function (res) {
+            //         console.log(res);
+            //         console.log(res[0]);
+            //         console.log(res[0]['sno']);
+            //     });
 
-                                {
-                                    data: '房間數',
-                                    title: '房間數'
-                                },
 
-                            ],
+            // ajax
 
-                            // 請查閱datatable說明手冊
-                            language: {
-                                "lengthMenu": "顯示 _MENU_ 筆資料",
-                                "sProcessing": "處理中...",
-                                "sZeroRecords": "没有匹配结果",
-                                "sInfo": "目前有 _MAX_ 筆資料",
-                                "sInfoEmpty": "目前共有 0 筆紀錄",
-                                "sInfoFiltered": " ",
-                                "sInfoPostFix": "",
-                                "sSearch": "搜尋:",
-                                "sUrl": "",
-                                "sEmptyTable": "尚未有資料紀錄存在",
-                                "sLoadingRecords": "載入資料中...",
-                                "sInfoThousands": ",",
-                                "oPaginate": {
-                                    "sFirst": "首頁",
-                                    "sPrevious": "上一頁",
-                                    "sNext": "下一頁",
-                                    "sLast": "末頁"
-                                },
-                                "order": [
-                                    [0, "desc"]
-                                ],
-                                "oAria": {
-                                    "sSortAscending": ": 以升序排列此列",
-                                    "sSortDescending": ": 以降序排列此列"
-                                }
+            $.ajax({
+                dataType: 'json',
+                url: './js/taichung-star-hotel.json',
+
+                // data: 
+                success: function (res) {
+                    console.log(res);
+                    // 每一行名稱都不一樣
+                    console.log(res);
+
+                    // let data = res.records.location;
+                    // 方法二
+
+                    $('#table_id').DataTable({
+                        data: res,
+                        columns: [{
+
+                                data: '編號',
+                                title: '編號'
+
                             },
-                        });
-            }
-        })
+                            {
+                                data: '旅宿名稱',
+                                title: '旅宿名稱'
+                            },
 
-        
-    </script>
+                            {
+                                data: '縣市別代碼',
+                                title: '縣市別代碼'
+                            },
+
+                            {
+                                data: '地址',
+                                title: '地址'
+                            },
+
+                            {
+                                data: '房間數',
+                                title: '房間數'
+                            },
+
+                        ],
+
+                        // 請查閱datatable說明手冊
+                        language: {
+                            "lengthMenu": "顯示 _MENU_ 筆資料",
+                            "sProcessing": "處理中...",
+                            "sZeroRecords": "没有匹配结果",
+                            "sInfo": "目前有 _MAX_ 筆資料",
+                            "sInfoEmpty": "目前共有 0 筆紀錄",
+                            "sInfoFiltered": " ",
+                            "sInfoPostFix": "",
+                            "sSearch": "搜尋:",
+                            "sUrl": "",
+                            "sEmptyTable": "尚未有資料紀錄存在",
+                            "sLoadingRecords": "載入資料中...",
+                            "sInfoThousands": ",",
+                            "oPaginate": {
+                                "sFirst": "首頁",
+                                "sPrevious": "上一頁",
+                                "sNext": "下一頁",
+                                "sLast": "末頁"
+                            },
+                            "order": [
+                                [0, "desc"]
+                            ],
+                            "oAria": {
+                                "sSortAscending": ": 以升序排列此列",
+                                "sSortDescending": ": 以降序排列此列"
+                            }
+                        },
+                    });
+                }
+            })
+        </script>
+</body>
