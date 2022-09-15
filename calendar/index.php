@@ -34,8 +34,6 @@
             width: 45%;
             height: 50%;
             /* 模糊大小 */
-            top: 250px;
-            left: 515px;
             /* 模糊位置 */
             z-index: -1;
             /* 向下一層 */
@@ -53,9 +51,7 @@
         .button-lastyear {
             font-size: 50px;
             display: block;
-            position: fixed;
-            margin: 420px;
-            top: 45px;
+
             cursor: pointer;
             line-height: 40px;
             
@@ -68,11 +64,9 @@
         .button-lastmonth {
             font-size: 50px;
             display: block;
-            float: left;
+
             cursor: pointer;
-            position: fixed;
-            margin: 550px;
-            top: -90px;
+
         }
 
         .icon-b {
@@ -82,9 +76,7 @@
         .next-year {
             font-size: 50px;
             display: block;
-            position: fixed;
-            margin: 1420px;
-            top: -950px;
+
             cursor: pointer;
             line-height: 40px;
         }
@@ -96,11 +88,7 @@
         .next-month {
             font-size: 50px;
             display: block;
-            float: left;
             cursor: pointer;
-            position: fixed;
-            margin: 1320px;
-            top: -858px;
         }
 
         .icon-d {
@@ -113,29 +101,18 @@
         .year {
             font-size: 27px;
             color: #F0FFFF;
-            position: fixed;
-            margin: 900px;
-            top: -560px;
-            left: 15px;
-            border-bottom: 1px #F0FFFF solid;
             padding-bottom: 1px;
         }
 
         .month {
             font-size: 50px;
             color: #F0FFFF;
-            position: fixed;
-            margin: 830px;
-            top: -550px;
-            left: 105px;
+
         }
 
         table {
             font-size: 25px;
-            position: fixed;
-            margin: 850px;
-            top: -450px;
-            left: -60px;
+
         }
 
         table td {
@@ -148,6 +125,7 @@
             color:lightpink;
         }
     </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 
@@ -165,9 +143,9 @@
     switch ($month) {
         case 1: //1月
             $prevMonth = 12;
-            $prevYear = $Year - 1;
-            $nextMonth = $Month + 1;
-            $nextYear = $Year;
+            $prevYear = $year - 1;
+            $nextMonth = $month + 1;
+            $nextYear = $year;
             break;
 
         case 12: //12月
@@ -184,19 +162,7 @@
     }
     ?>
 
-    <!-- 轉換月分 按鍵-->
-    <div class="button-lastyear">
-        <a href="index.php?year=<?= $prevYear - 1; ?>&month=<?= $prevMonth + 1; ?>"><i class="fa-solid fa-angles-left icon-a"></i></a>
-    </div>
-    <div class="button-lastmonth">
-        <a href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>"><i class="fa-solid fa-angle-left icon-b"></i></a>
-    </div>
-    <div class="next-year">
-        <a href="index.php?year=<?= $nextYear + 1; ?>&month=<?= $nextMonth - 1; ?>"><i class="fa-solid fa-angles-right icon-c"></i></a>
-    </div>
-    <div class="next-month">
-        <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>"><i class="fa-solid fa-angle-right icon-d"></i></a>
-    </div>
+
 
     <?php
     $firstDay = $year . "-" . $month . "-1";
@@ -220,7 +186,7 @@
         $dateHouse[] = "";
     }
     ?>
-
+<div style="width: 100%; text-align: center;">
 
     <div class="year">
         <?php
@@ -232,56 +198,80 @@
         echo $month . "";
         ?>
     </div>
-    <table>
-        <tr>
-            <td>S</td>
-            <td>M</td>
-            <td>T</td>
-            <td>W</td>
-            <td>T</td>
-            <td>F</td>
-            <td>S</td>
-        </tr>
-        <?php
-        $firstDay = date("Y-") . $month . "-1";
-        $firstWeekday = date("w", strtotime($firstDay));
-        $monthDays = date("t", strtotime($firstDay));
-        $lastDay = date("Y-") . $month . "-" . $monthDays;
-        $today = date("Y-m-d");
+</div>
 
-
-        for ($i = 0; $i < 6; $i++) {
-            echo "<tr>";
-
-            for ($j = 0; $j < 7; $j++) {
-                $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
-
-                if ($d >= 0 && $d < $monthDays) {
-                    $fs = strtotime($firstDay);
-                    $shiftd = strtotime("+$d days", $fs);
-                    $date = date("d", $shiftd);
-                    $w = date("w", $shiftd);
-                    $chktoday = "";
-                    if (date("Y-m-d", $shiftd) == $today) {
-                        $chktoday = 'today';
-                    }
-                    //$date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
-                    if ($w == 0 || $w == 6) {
-                        echo "<td class='weekend $chktoday' >";
+<div class="content">
+    
+    <!-- 轉換月分 按鍵-->
+    <div class="button-lastyear">
+        <a href="index.php?year=<?= $prevYear - 1; ?>&month=<?= $prevMonth + 1; ?>"><i class="fa-solid fa-angles-left icon-a"></i></a>
+    </div>
+    <div class="button-lastmonth">
+        <a href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>"><i class="fa-solid fa-angle-left icon-b"></i></a>
+    </div>
+    
+    <div class="myTable">
+        <table>
+            <tr>
+                <td>S</td>
+                <td>M</td>
+                <td>T</td>
+                <td>W</td>
+                <td>T</td>
+                <td>F</td>
+                <td>S</td>
+            </tr>
+            <?php
+            $firstDay = date("Y-") . $month . "-1";
+            $firstWeekday = date("w", strtotime($firstDay));
+            $monthDays = date("t", strtotime($firstDay));
+            $lastDay = date("Y-") . $month . "-" . $monthDays;
+            $today = date("Y-m-d");
+        
+        
+            for ($i = 0; $i < 6; $i++) {
+                echo "<tr>";
+        
+                for ($j = 0; $j < 7; $j++) {
+                    $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
+        
+                    if ($d >= 0 && $d < $monthDays) {
+                        $fs = strtotime($firstDay);
+                        $shiftd = strtotime("+$d days", $fs);
+                        $date = date("d", $shiftd);
+                        $w = date("w", $shiftd);
+                        $chktoday = "";
+                        if (date("Y-m-d", $shiftd) == $today) {
+                            $chktoday = 'today';
+                        }
+                        //$date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
+                        if ($w == 0 || $w == 6) {
+                            echo "<td class='weekend $chktoday' >";
+                        } else {
+                            echo "<td class='workday $chktoday'>";
+                        }
+                        echo $date;
+                        echo "</td>";
                     } else {
-                        echo "<td class='workday $chktoday'>";
+                        echo "<td></td>";
                     }
-                    echo $date;
-                    echo "</td>";
-                } else {
-                    echo "<td></td>";
                 }
+        
+                echo "</tr>";
             }
+            ?>
+        </table>
+        
 
-            echo "</tr>";
-        }
-        ?>
-    </table>
+    </div>
+    <div class="next-month">
+        <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>"><i class="fa-solid fa-angle-right icon-d"></i></a>
+    </div>
+    <div class="next-year">
+        <a href="index.php?year=<?= $nextYear + 1; ?>&month=<?= $nextMonth - 1; ?>"><i class="fa-solid fa-angles-right icon-c"></i></a>
+    </div>
+</div>
+
     </article>
 </body>
 
